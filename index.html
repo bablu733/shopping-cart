@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Grid With Cart Drawer</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header 
+        style="width: 100%;
+        height: 100px;
+        padding: 30px 1%;
+        z-index: 99;"
+        class="d-flex justify-content-end position-fixed top-0 start-0"
+        >
+            <div class="shopping-bag w-auto " data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample" style="height: 70px;   background-color: #d9f5f4;   border-bottom-left-radius: 20%;
+                " onclick="openCart()">
+                <button class="btn border-0 p-2">
+                    <!-- <i class="fas fa-shopping-bag fa-3x p-0" style="color: #27b7b1;"></i> -->
+                    <img src="./images/bag.png" style="width: 2.5rem;" alt="" srcset="">
+                    <div class="total-items-in-cart
+                     rounded-circle fw-bold text-center
+                      text-dark bg-white 
+                      mx-2
+                      mt-2
+                      position-absolute
+                      "
+                        style="bottom:.5rem; right: .6rem; width: 1.5rem; height: 1.5rem; font-size: .9rem; ">
+                        >
+                        0
+                    </div>
+                </button>
+            </div>
+        </header>
+
+        <main>
+
+            <div class="container my-5">
+                <div class="row row-cols-1 g-3">
+                    <div class="col">
+
+                        <!-- <div class="card border-0" style="width: 45.688rem; height: 10rem;">
+                            <div class="card-body d-flex ">
+                                <img src="${item.images[0].src}" style="width: 6.25rem; height: 6.25rem;" alt="${item.title}"
+                                    srcset="">
+                                <div class="col mx-4">
+                                    <h5 class="card-title " style="font-size: 1rem;">${item.title}</h5>
+                                    <p class="card-text"
+                                        style="font: normal normal normal 14px/20px Nunito; color: #221F20; opacity: 1;">
+                                        Color : Grey</p>
+
+                                        <div class="d-flex justify-content-between">
+                                        <div class="btn-group ">
+                                            <div class=" rounded-pill"
+                                                style="background: #F6F6F6 0% 0% no-repeat padding-box;">
+                                                <button type="button"
+                                                    class="minus fw-bold border-0 rounded-2 btn btn-light disabled btn-sm"
+                                                    style="cursor: pointer;" onclick="changeNumberOfUnits('minus', ${item.id})">-</button>
+                                                <span class="mx-2">${item.numberOfUnits}</span>
+                                                <button type="button"
+                                                    class="plus border-0 fw-bold rounded-2 btn btn-light disabled btn-sm"
+                                                    style="cursor: pointer;" onclick="changeNumberOfUnits('plus', ${item.id})">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="total-price mx-4" style="cursor: pointer;"
+                                        onclick="removeItemFromCart(${item.id})">
+                                        <i class="fas fa-xmark"></i>
+                                    </div>
+
+                                    <div class="total-price mt-5">
+                                        <p class="card-text fw-bold"> <small>$</small>${item.variants[0].price}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="card h-100 border-0 justify-content-center text-center">
+                            <div class="card-body">
+                                <img src="./images/logo.png" class="" style="width: 12rem;" alt="" srcset="">
+                                <h5 class="card-title my-3" style="font-size: 2rem;  color: #122230de;">Featured
+                                    Collection</h5>
+                                <p class="card-text " style="font-weight: 500; color: #878787ea;">
+                                    Lorem ipsum dolor sit amet. Lorem ipsum dolor, sit amet consectetur
+                                    <br> adipisicing elit. Lorem, ipsum. Lorem ipsum.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container position-relative  my-4 p-3">
+                    <div class="row row-cols-1 products row-cols-xs-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-3">
+                        <!-- render porducts here -->
+                    </div>
+                </div>
+
+
+                <!-- dsfd -->
+
+                <div class="container my-5">
+                    <div class="  d-flex  ">
+
+                        <div class="col-4  ">
+                            <div class="row ">
+                                <div class="card border-0">
+                                    <div class="card-body">
+                                        <h3 class="">Made For You</h1>
+                                            <p class=""
+                                                style="color: #7D7D7D; opacity: 1; font: normal normal normal 16px/24px Karla;">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
+                                                consectetur
+                                                tempore quisquam Lorem, ipsum.
+                                            </p>
+                                            <div class="add-to-cart btn rounded-0 btn-outline-dark w-50 border-2 justify-content-center pt-2"
+                                                style="height:2.8rem" onclick="addToCart($(product.id))">
+                                                <span class="" style="font-weight:500; font-size:1rem; 
+                                                font: normal normal bold 13px/15px Karla;
+                                                
+                                                text-transform: uppercase;
+                                                opacity: 1;
+                                                ">
+                                                    LEARN MORE
+                                                </span>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-5">
+                                <img src="./images/Rectangle 1603.png" class="p-3" alt="" srcset="">
+                            </div>
+                        </div>
+                        <div class="row-4 align-items-center">
+                            <div class="col-6">
+                                <img src="./images/Rectangle 1600.png" style="
+                                height: 10rem;
+                                margin-left: 8.5rem;
+                                 " class="align-items-center" alt="" srcset="">
+                            </div>
+
+                            <div class="col-6 p-0 m-0">
+                                <img src="./images/Rectangle 1602.png" class="" style="height: 30rem;
+                                  width: 30rem;
+                                  margin-top: -2rem;
+                                margin-left: -2rem; " alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="col-4 d-flex justify-content-center align-items-center position-absolute end-0"
+                            style=" height: 30rem; width: 50%; z-index: -1;  background-color: #d9f5f4;">
+                            <div class="card bg-transparent border-0 " style="margin-right: -6rem;">
+                                <div class="card-body">
+                                    <img src="./images/Rectangle 1601.png" class="card-img-top" alt="" srcset="">
+                                    <div class="card-title h4"
+                                        style=" text-align: left; font: normal normal medium 30px/36px Karla; margin-top: 1rem; color: #122230; opacity: 1;">
+                                        FIND YOUR SPARKLE.</div>
+                                    <p class="card-subtitle fw-bold text-left"
+                                        style="color: #7D7D7D; opacity: 1; font: normal normal normal 14px/24px Karla;">
+                                        SHOP OUR PRODUCTS <small class="fw-bold font-monospace"
+                                            style="font-size: 1rem;">&gt;</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header border-3 border-dark border-bottom"
+                style="border-bottom-color: #221F20 0% 0% no-repeat padding-box;;">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="font: normal normal bold 32px/37px Karla; color: #221F20;  text-transform: uppercase;
+                opacity: 1;">YOUR BAG
+                    <span class="totalItem h6" style="
+                    font: normal normal normal 20px/23px Karla;
+                    letter-spacing: 0px;
+                    color: #221F20;
+                    text-transform: uppercase;
+                    opacity: 1;
+                    font-weight: 500;
+                    ">
+                        (0 items)
+                    </span>
+                </h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="cart-items">
+                    <!-- render cart items here -->
+                </div>
+                <div class=" border-3 border-dark border-top"
+                    style="background: #EFF5F7 0% 0% no-repeat padding-box; opacity: 1; height: 11.625rem;">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="h6 text-uppercase" style="
+                                font: normal normal bold 16px/24px Karla;
+                                 color: #221F20; 
+                                 font-size: 1.3rem;
+                                 opacity: 1; text-align: left; margin-top: 1rem; margin-left: 1rem;">
+                                Subtotal
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <p class="h6 subtotal"
+                                style="
+                                font: normal normal bold 16px/24px Karla; font-size: 1.3rem; color: #221F20; opacity: 1; text-align: right; margin-top: 1rem; margin-right: 1rem;">
+                                $0.00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="justify-content-center p-3 text-center text-uppercase btn btn-dark w-100 border-0 rounded-0"
+                                style="font-size: 1rem; opacity: 1;">
+                                <!-- lock icon -->
+                                <img src="./images/lock-line.png" alt="" srcset="">
+                                checkout
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="p-3  w-100">
+                                <p style="font: normal normal normal 13px/19px Karla; color: #221F20; opacity: 1; text-align: center;"
+                                    class="">
+                                    Have a promo code? Enter your code at checkout. Shipping & taxes are calculated
+                                    during checkout.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const porductsListEl = document.querySelector(".products-list");
+            const seeMoreBtn = document.querySelector(".see-more-btn");
+
+            seeMoreBtn.addEventListener('click', () => {
+                porductsListEl.scrollIntoView({ behavior: "smooth" })
+            })
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+        <script src="./products.js"></script>
+        <script src="./app.js"></script>
+    </div>
+</body>
+
+</html>
